@@ -2,6 +2,7 @@ state("MomodoraRUtM", "v1.05b Steam")
 {
 	// For tracking if we leave to the main menu
 	short LevelId : 0x230F1A0;
+	double Health : 0x2304CE8, 0x4, 0x0;	
 
 	// For start
 	double DifficultySelector : 0x22C5A7C, 0xCB4, 0xC, 0x4, 0x41B0;
@@ -21,6 +22,7 @@ state("MomodoraRUtM", "v1.06")
 {
 	// For tracking if we leave to the main menu
 	short LevelId : 0x2317448;
+	double Health : 0x230CF90, 0x4, 0x0;
 
 	// For start
 	double DifficultySelector : 0x22CDD94, 0xCB4, 0xC, 0x4, 0x41F0;
@@ -39,6 +41,7 @@ state("MomodoraRUtM", "v1.07")
 {
 	// For tracking if we leave to the main menu
 	short LevelId : 0x237C360;
+	double Health : 0x2371EA8, 0x4, 0x0;	
 
 	// For start
 	double DifficultySelector : 0x2332CB4, 0xCB4, 0xC, 0x4, 0x4200;
@@ -222,9 +225,8 @@ split
 			vars.Splits.Add("lubella2");
 			return settings["lubella2"];
 		}
-    
 		// Frida
-		if (current.LevelId == 141 && current.CutsceneState == 0 && old.CutsceneState == 500)
+		if (current.LevelId == 141 && current.CutsceneState == 0 && old.CutsceneState == 500 && current.Health > 0)
 		{
 			if (vars.Splits.Contains("frida"))
 			{
